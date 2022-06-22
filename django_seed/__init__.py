@@ -39,7 +39,7 @@ class Seed(object):
     def seeder(cls, locale=None):
         code = cls.codename(locale)
         if code not in cls.seeders:
-            faker = cls.fakers.get(code, None) or cls.faker(codename=code)
+            faker = cls.fakers.get(code, None) or cls.faker(codename=code, locale=code)
             from django_seed import seeder
             cls.seeders[code] = seeder.Seeder(faker)
 
